@@ -1,0 +1,39 @@
+@media screen and (max-width: 768px) {
+    .graph{
+        width: 100%;
+    }
+    nav {
+        display: none;
+    }
+    #bars { display: block;}
+    #bars:active{transform:translate(0px,-5px) rotate(90deg);} 
+    
+    /* Show hamburger icon */
+    .nav-toggle {
+        display: block;
+        text-align: right;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    .nav-toggle:hover {
+        background-color: #55555500;
+    }
+    .nav-toggle .icon {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin-bottom: 5px;
+    }
+    .nav-toggle .icon:last-child {
+        margin-bottom: 0;
+    }
+    .nav-active {
+        display: block;
+    }
+    nav a {
+        display: block;
+        border-bottom: 1px solid var(--text-color); /* Remove border for mobile view */
+    }
+    .card{width:95%;}
+}

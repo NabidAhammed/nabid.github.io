@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stylish Scientific Calculator by Nabid Ahammed Limon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="designer" content="Nabid Ahamed Limon">
+    <meta name="author" content="Nabid Ahamed Limon">
+<style type="text/css">
+
+body{padding:0px;margin:0px;background:rgb(50,50,60);width:100%;display:flex;justify-content:center;align-items:center;
+font-family:"Times New Roman",Times,serif;}
+.wrapper{width:94%;max-width:410px;padding:20px 20px;border-radius:20px;background:rgb(10,20,30);height:685px;
+               box-shadow:0px 0px 20px 10px black;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+#display{background:rgb(60,60,80);height:17%;box-shadow:
+0px 0px 13px 0px white;font-size:30px;padding:10px 2px; margin-bottom:10px;}
+#input{background:inherit;width:100%;height:40%;text-align:left;overflow:scroll;}
+#output{background:inherit;width:100%;overflow:scroll;font-size:50px;text-align:center;height:60%;}
+.cont{display:flex;flex-wrap:row;justify-content:center;}
+.cont button{flex-grow:1;font-size:17px;padding:6px 10px;margin:0px;margin-top:15px;border:1px solid gray;width:22%;
+box-shadow:0px  6px rgb(70,70,90);background:rgb(20,30,40);color:rgb(0,200,0)}
+.opr{width:60%;margin-top:10px;float:left}
+.opr button{width:30%;padding:16px;margin:0px;font-size:24px; background:rgb(10,20,30);color:skyblue;box-shadow:
+0px 5px rgb(70,70,90) ; margin-top:10px;border:1px solid gray;}
+.oprx{width:40%;margin-top:10px;float:right}
+.oprx button{width:45.5%;padding:16px;margin:0px;font-size:24px; background:rgb(25,35,50);color:lightgray;box-shadow:
+0px 5px  rgb(70,70,90) ; margin-top:10px;border:1px solid gray;float:right}
+ button:hover{border:1px solid lime;}
+ button:active{box-shadow:0px 2px rgb(70,70,90);transform: translateY(6px)}
+#manual{display:none;width:88%;margin:0px; background:silver;color:indigo;padding:10px;position:absolute;z-index:10;}</style>
+<script type="text/javascript">
+
+alert("First click the 'ON' button to on the calculator and there is a manualⓂ️ at the top right corner.Read it to know the buttons action properly. Don't forget to upvote and left a comment for my inspiration 😇 ")
+function on(){var display=document.getElementById("display");
+  display.style.backgroundColor='lime';
+  var btns= document.getElementsByTagName("button");
+  for(var i=1;i<btns.length;i++){btns[i].disabled=false}
+  }
+function off() { 
+document.getElementById("input").innerHTML="";
+document.getElementById("output").innerHTML="";
+document.getElementById("display").style.backgroundColor="rgb(60,60,80)";
+var btns= document.getElementsByTagName("button");
+for(var i=1;i<btns.length;i++){btns[i].disabled=true}}
+function press(x) { document.getElementById("input").innerHTML+=x;}
+function solve(){var d=document.getElementById("input");
+                        var e=d.innerHTML;
+                if(e.length>2)    {    var f=e.replace(/π/gi,'*(Math.PI)')}
+                else{var f=e.replace(/π/gi,'(Math.PI)')}
+                        f=f.replace(/%/gi,'*(1/100)').replace(/÷/gi,'/').replace(/×/gi,'*').replace(/sin/gi,'Math.sin').replace(/tan/gi,'Math.tan').replace(/abs/gi,'Math.abs').replace(/cos/gi,'Math.cos')
+                        f=f.replace(/°/gi,'*(Math.PI/180)').replace(/log10/gi,'Math.log10').replace(/logE/gi,'Math.log').replace(/n√/gi,'nrootx').replace(/√/gi,'Math.sqrt').replace(/rad/gi,'*(180/Math.PI)').replace(/e/gi,'Math.E').replace(/mod/gi,'%')
+                       var result=eval(f);
+                     var r=document.getElementById("output").innerHTML=result;
+                   return r;
+}
+function del(){var a=document.getElementById("input").innerHTML;
+                   var n= a.slice(0,-1)    ;       document.getElementById("input").innerHTML=n;
+                   }
+function clr(){document.getElementById("input").innerHTML=" ";
+                        document.getElementById("output").innerHTML=" ";}                    
+function nrootx(m,n){this.m=m;this.n=n;var z=Math.pow(n,(1/m));
+                                return z;}
+                                </script>
+    </head>
+<body onload="off()">
+<div class="wrapper">
+<div id="manual"><center><b onclick="document.getElementById('manual').style.display='none'" style="text-align:right; font-size:50px;padding:2px 10px;border:1px solid indigo">&times;</b><h1>Manual</h1></center><hr>
+<article>
+<font color="green">1.</font>'On' button makes the calculator's buttons clickable and get live to the display. <br>
+<font color="green">2.</font>'Off' button turns off the calculator and make all the buttons unclickable except 'on' button.<br>
+<font color="green">3.</font>'Del' button deletes the input one by one.<br>
+<font color="green">4.</font>'Clr' button clears the display.<br>
+<font color="green">5.</font>To use trigonometry calculation you must use parenthesis and a degree or radian sign like this "sin(30°)"<br>
+<font color="green">6.</font>You can also convert degree to radian or radian to degree by just clicking deg or rad button.<br>
+<font color="green">7.</font>To work with the button n√X ,you need to input like this n√X(n,x) where n is the power and x is the digit you want to transform.<br>
+<font color="green">8.</font>The %mod button indicates the remainder function of division.<br>
+<font color="green">9.</font>The only % button works like a percentage.<br>
+<font color="green">10.</font>The π indicates the value of Math.Pi you know.<br>
+</article></div>
+<div id="display"><div id="input"></div><div id="output"></div>
+</div>
+<div class="cont">
+<button style="border-top-left-radius:8px;color:white" id="on" onclick="on()" type="disabled">ON</button>
+<button style="color:red" onclick="off()">OFF</button>
+<button id="del" onclick="del()">-D<font color="red">E</font>L</button>
+<button  onclick="clr()">CLR</button>
+<button style="border-top-right-radius:8px" onclick="document.getElementById('manual').style.display='block'">Ⓜ️</button>
+</div>
+<div class="cont">
+<button onclick="press('sin(')">Sin(X)</button>
+<button onclick="press('cos(')">Cos(X)</button>
+<button onclick="press('tan(')">Tan(X)</button>
+<button onclick="press('abs(')">Abs(X)</button>
+<button onclick="press('**')">X<sup>^</sup></button>
+</div>
+<div class="cont">
+<button onclick="press('(')">(</button>
+<button onclick="press(')')">)</button>
+<button onclick="press(',')">(')cma</button>
+<button onclick="press('e^(')">E<sup>x</sup></button>
+<button onclick="press('√(')">√X</button>
+</div>
+<div class="cont">
+<button onclick="press('°')">Deg</button>
+<button onclick="press('rad')">Rad</button>
+<button onclick="press('log10(')">LOG<sub>10</sub>X</button>
+<button onclick="press('logE(')">LOG<sub>e</sub>X</button>
+<button onclick="press('n√(')"><sup>n</sup>√X</button>
+</div>
+<div class="opr">
+<button onclick="press(1)">1</button>
+<button onclick="press(2)">2</button>
+<button onclick="press(3)">3</button>
+<button onclick="press(4)">4</button>
+<button onclick="press(5)">5</button>
+<button onclick="press(6)">6</button>
+<button onclick="press(7)">7</button>
+<button onclick="press(8)">8</button>
+<button onclick="press(9)">9</button><br>
+<button onclick="press(0)">0</button>
+<button onclick="press('.')">.</button>
+<button onclick="press('π')">π</button>
+</div>
+<div class="oprx">
+<button onclick="press('mod')">%<font size="1px">mod</font></button>
+<button onclick="press('%')">%</button>
+<button onclick="press('+')">+</button>
+<button onclick="press('-')">-</button>
+<button onclick="press('×')">×</button>
+<button onclick="press('÷')">÷</button>
+<button style="width:92%;border-radius:0px 10px" onclick="solve()">Ans</button>
+</div></div
+</body>
+</html>
