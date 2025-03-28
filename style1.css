@@ -78,6 +78,7 @@ header {
             max-width: 100%;
             margin: 0 auto;
             padding: 20px;
+            background-color: #000000;
 
         }
 .title{
@@ -132,7 +133,6 @@ header {
 
 .card{
 width: 45%;
-padding-bottom:10px;
 margin: 15px;
 border-radius: 5%;
 text-align: justify;
@@ -159,7 +159,8 @@ position: relative;
     font-weight: 200;
    }
 
-.card p{font-size:large;margin:0px 10px;}
+.card p{font-size:large;margin:10px 10px;}
+.card img{ width:60%; max-height:300px;margin:20px; border:1px solid var(--title-color);}
 
 .gradient-text {
     background: linear-gradient(to right, #00d9ff, #00eaff); /* Gradient from red to blue */
@@ -183,9 +184,10 @@ position: relative;
 }
 .skill{
     border:1px solid var(--text-color);
-    padding: 5px;
+    padding: ;
     text-align: center;
-    width: 130px;
+    width: 15%;
+    min-width: 196px;
     margin: 16px;
     border-top-left-radius: 16px;
     background-color: var(--div-bg);
@@ -193,7 +195,7 @@ position: relative;
     position: relative;
 }
 .skill:hover{
-    transform:scale(1.1);
+    transform:scale(1.05);
     transition: 1s;/* Change color and intensity here */
     
 }
@@ -205,7 +207,7 @@ position: relative;
 .skill h4{
     background-color:var(--head-bg);
     color:var(--title-color);
-    font-size: 1.4em;
+    font-size: 1.9em;
     font-weight: 250;margin-top: 0px;
     padding: 10px 3px;
 }
@@ -286,4 +288,13 @@ position: relative;
     from{background-color:transparent;width: 0;}
     to{background-color: var(--title-color);}
 }
+.project{
+    width:45%; 
+}
 
+.project img{ 
+width: 100%;height:300px;margin-top: 0%;
+}
+.project button{
+    width: 45%;
+}
