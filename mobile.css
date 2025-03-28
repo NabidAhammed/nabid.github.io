@@ -36,4 +36,8 @@
         border-bottom: 1px solid var(--text-color); /* Remove border for mobile view */
     }
     .card{width:95%;}
+
+    .project{
+        width:100%; 
+    }
 }
