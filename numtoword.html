@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Number to word converter by Nabid Ahammed Limon</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="author" content="Nabid Ahamed Limon"/>
+    <meat name="title" content="Number to word converter by Nabid Ahammed Limon"/>
+    <meta name="description" content="Enter a number and it will return your number in English string format.Such as 56 as fifty six. Created by Nabid Ahammed Limon . A full stack web developer and programmer."/>
+    <meta name="robots" content="all"/>
+<style>
+body{display:flex; justify-content:center;align-items:center;width:100%;height:100vh;background: #001f42;} 
+.box{background:#121240;width:80%;height:80vw;max-width:700px;max-height:500px;box-shadow:0px 0px 50px green;text-align:center;padding:22px;}
+#word{width:100%;height:40%; background:white;box-shadow:0px 0px 12px white;text-align:center;font-size:15pt;align-items:center;display:flex; justify-content:center;color:green;overflow:auto}
+#num{width:98%;height:25%; background:skyblue;margin-top:16px;margin-bottom:16px;text-align:center;font-size:20pt;}
+button{width:100%;height:25%; background:#00a100; border-radius:20px;color:white;}
+button:hover{background:white;color:red; border-radius:40px;}
+</style>
+<script>
+  
+  function N2W(num){if(num<1000000000){
+var n=num.toString();
+var l=n.length;
+var a1=["Zero","One ","Two ","Three ","Four ","Five ","Six ","Seven ","Eight ","Nine ","Ten ","Eleven ","Twelve ","Thirteen ","Fourteen ","Fifteen ","Sixteen ","Seventeen ","Eighteen ","Nineteen ","Twenty "];
+var a2=["","Ten","Twenty ","Thirty ","Fourty ","Fifty ","Sixty ","Seventy ","Eighty ","Ninety "]
+var d12=parseInt(c(2)+c(1))
+var d3=parseInt(c(3));
+var d45=parseInt(c(5)+c(4));
+var d67=parseInt(c(7)+c(6));
+var d89=parseInt(c(9)+c(8));
+var dx=parseInt(c(11)+c(10));
+function c(i){
+ let a1=n.charAt(l-i);
+ return a1;}
+function d_12(){
+if(num>0){
+ if(d12>0&&d12<21){return a1[d12]}
+else if(d12>20&&c(1)!=0){return a2[c(2)]+a1[c(1)]}
+else{return a2[c(2)]} 
+}
+}
+function d_3(){
+  if(num>99){
+if(d3>0&&c(1)!=0){return a1[d3]+"hundred and "}
+else if(d3!=0&&c(2)==0&&c(1)==0){return a1[d3]+"hundred"}
+else if(d3>0&&c(1)==0&&c(2)!=0){return a1[d3]+"hundred and "}
+else{return ""}}
+}
+function d_45(){
+if(num>999&&d45!=0){
+if(d45>0&&d45<21){return a1[d45]+"thousand "}
+else if(d45>20&&c(4)!=0){return a2[c(5)]+a1[c(4)]+"thousand "}
+else{return a2[c(d45)]+"thousand "}
+  
+}
+}
+function d_67(){
+if(num>99999){
+ if(d67>0&&d67<21){return a1[d67]+"lakh(s) "}
+else if(d67>20&&c(6)!=0){return a2[c(7)]+a1[c(6)]+"lakh(s) "}
+else if(d67==0){return ""}
+else{return a2[c(6)]+"lakh(s) "}
+}
+}
+function d_89(){
+if(num>9999999){
+if(d89>0&&d89<21){return a1[d89]+"crore "}
+else if(d89>20&&c(8)!=0){return a2[c(9)]+a1[c(8)]+"crore "}
+else{return a2[c(8)]+"crore "}
+}  
+  
+}
+var final=d_89()+d_67()+d_45()+d_3()+d_12();
+var w=final.replace(/undefined/g,"").replace(/NaN/g,"");
+return w;}
+else{alert("Too big.....You've to input a number Between 0-1billion")}
+}
+
+</script>
+<script>
+  function convert(){
+const inp=document.getElementById("num")
+  .value;
+const res=N2W(inp);
+document.getElementById("word").innerHTML=res;
+return 0;
+  }
+  function reset(){
+    document.getElementById("word").innerHTML="";
+    document.getElementById("num").value="";
+  }
+</script>
+ </head>
+ <body>
+   <br><div class="box">
+    <div id="word"></div>
+   <input id="num" type="number" placeholder="Input your number" autofocus="on" value="" oninput="convert()"/><br>
+   <button onclick="reset()">RESET</button>
+     
+   </div>
+   </body>
+   </html>
+ 
